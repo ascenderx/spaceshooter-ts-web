@@ -7,7 +7,7 @@ class Game {
 
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
-    let context = canvas.getContext('2d');
+    let context: CanvasRenderingContext2D | null = canvas.getContext('2d');
     if (context === null) {
       throw "Cannot create 2D rendering context";
     } else {
@@ -19,7 +19,7 @@ class Game {
   }
 
   public run(): void {
-    
+    this.loop.resume();
   }
 
   private onKeyDown(event: KeyboardEvent): void {

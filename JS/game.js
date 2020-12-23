@@ -15,6 +15,7 @@ class Game {
         window.addEventListener('keyup', this.onKeyUp.bind(this));
     }
     run() {
+        this.loop.resume();
     }
     onKeyDown(event) {
         let key = event.key;

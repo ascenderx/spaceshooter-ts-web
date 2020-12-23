@@ -2,6 +2,8 @@ class Game {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
   private keys: { [key: string]: boolean } = {};
+  private static readonly INTERVAL = 10;
+  private loop: IntervalLoop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
 
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -44,11 +46,24 @@ class Game {
     return this.keys[key];
   }
 
+  private onTick(): boolean {
+    this.handleInput();
+    this.updateObjects();
+    this.handleCollisions();
+    this.cleanUpZombies();
+    this.drawAll();
+    return true;
+  }
+
   private handleInput(): void {
 
   }
 
   private updateObjects(): void {
+
+  }
+
+  private handleCollisions(): void {
 
   }
 

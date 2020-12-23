@@ -2,6 +2,7 @@
 class Game {
     constructor(canvas) {
         this.keys = {};
+        this.loop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
         this.canvas = canvas;
         let context = canvas.getContext('2d');
         if (context === null) {
@@ -32,12 +33,26 @@ class Game {
             this.keys[key] = false;
         }
     }
+    isKeyDown(key) {
+        return this.keys[key];
+    }
+    onTick() {
+        this.handleInput();
+        this.updateObjects();
+        this.handleCollisions();
+        this.cleanUpZombies();
+        this.drawAll();
+        return true;
+    }
     handleInput() {
     }
     updateObjects() {
+    }
+    handleCollisions() {
     }
     cleanUpZombies() {
     }
     drawAll() {
     }
 }
+Game.INTERVAL = 10;

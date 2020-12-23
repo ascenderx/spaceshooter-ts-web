@@ -40,6 +40,10 @@ class Game {
     }
   }
 
+  private isKeyDown(key: string): boolean {
+    return this.keys[key];
+  }
+
   private handleInput(): void {
 
   }

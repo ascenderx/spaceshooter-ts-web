@@ -11,24 +11,19 @@ class Game {
     } else {
       this.context = context;
     }
-
-    window.addEventListener('keydown', this.onKeyDown.bind(this));
-    window.addEventListener('keyup', this.onKeyUp.bind(this));
   }
 
   public run(): void {
     this.loop.resume();
   }
 
-  private onKeyDown(event: KeyboardEvent): void {
-    let key: string = event.key;
+  public onKeyDown(key: string): void {
     if (!(key in this.keys)) {
       this.keys[key] = true;
     }
   }
 
-  private onKeyUp(event: KeyboardEvent): void {
-    let key: string = event.key;
+  public onKeyUp(key: string): void {
     if (key in this.keys) {
       delete this.keys[key];
     }

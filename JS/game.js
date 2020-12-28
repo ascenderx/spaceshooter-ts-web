@@ -11,20 +11,16 @@ class Game {
         else {
             this.context = context;
         }
-        window.addEventListener('keydown', this.onKeyDown.bind(this));
-        window.addEventListener('keyup', this.onKeyUp.bind(this));
     }
     run() {
         this.loop.resume();
     }
-    onKeyDown(event) {
-        let key = event.key;
+    onKeyDown(key) {
         if (!(key in this.keys)) {
             this.keys[key] = true;
         }
     }
-    onKeyUp(event) {
-        let key = event.key;
+    onKeyUp(key) {
         if (key in this.keys) {
             delete this.keys[key];
         }

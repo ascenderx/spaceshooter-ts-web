@@ -7,12 +7,7 @@ class GameObject {
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
-    }
-    doesCollideWith(target) {
-        return (this.x < target.x + target.width) &&
-            (this.x + this.width > target.x) &&
-            (this.y < target.y + target.height) &&
-            (this.y + this.height > target.y);
+        this.alive = true;
     }
     moveLeft(dx) {
         this.dx = -dx;
@@ -33,6 +28,12 @@ class GameObject {
     move(dx, dy) {
         this.dx = dx;
         this.dy = dy;
+    }
+    doesCollideWith(target) {
+        return (this.x < target.x + target.width) &&
+            (this.x + this.width > target.x) &&
+            (this.y < target.y + target.height) &&
+            (this.y + this.height > target.y);
     }
     update() {
         this.x += this.dx;

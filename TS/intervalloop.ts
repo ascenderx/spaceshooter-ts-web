@@ -1,6 +1,6 @@
 class IntervalLoop {
-  private callback: () => boolean;
-  private interval: number;
+  private readonly callback: () => boolean;
+  private readonly interval: number;
   private previousTime: number = 0;
   private frameHandle: number | null = null;
 

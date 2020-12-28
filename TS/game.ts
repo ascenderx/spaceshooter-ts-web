@@ -1,9 +1,9 @@
 class Game {
-  private canvas: HTMLCanvasElement;
-  private context: CanvasRenderingContext2D;
-  private keys: { [key: string]: boolean } = {};
   private static readonly INTERVAL = 10;
-  private loop: IntervalLoop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
+  private readonly canvas: HTMLCanvasElement;
+  private readonly context: CanvasRenderingContext2D;
+  private readonly keys: { [key: string]: boolean } = {};
+  private readonly loop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
 
   public constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;

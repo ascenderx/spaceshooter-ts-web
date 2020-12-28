@@ -1,12 +1,10 @@
 class Game {
   private static readonly INTERVAL = 10;
-  private readonly canvas: HTMLCanvasElement;
   private readonly context: CanvasRenderingContext2D;
   private readonly keys: { [key: string]: boolean } = {};
   private readonly loop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
 
-  public constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
+  public constructor(private canvas: HTMLCanvasElement) {
     let context: CanvasRenderingContext2D | null = canvas.getContext('2d');
     if (context === null) {
       throw "Cannot create 2D rendering context";

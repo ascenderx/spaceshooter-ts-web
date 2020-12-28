@@ -1,10 +1,10 @@
 "use strict";
 class IntervalLoop {
     constructor(callback, interval) {
-        this.previousTime = 0;
-        this.frameHandle = null;
         this.callback = callback;
         this.interval = interval;
+        this.previousTime = 0;
+        this.frameHandle = null;
     }
     resume() {
         if (this.frameHandle !== null) {

@@ -1,9 +1,9 @@
 "use strict";
 class Game {
     constructor(canvas) {
+        this.canvas = canvas;
         this.keys = {};
         this.loop = new IntervalLoop(this.onTick.bind(this), Game.INTERVAL);
-        this.canvas = canvas;
         let context = canvas.getContext('2d');
         if (context === null) {
             throw "Cannot create 2D rendering context";

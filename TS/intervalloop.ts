@@ -1,13 +1,8 @@
 class IntervalLoop {
-  private readonly callback: () => boolean;
-  private readonly interval: number;
   private previousTime: number = 0;
   private frameHandle: number | null = null;
 
-  public constructor(callback: () => boolean, interval: number) {
-    this.callback = callback;
-    this.interval = interval;
-  }
+  public constructor(private callback: () => boolean, private interval: number) {}
 
   public resume(): void {
     if (this.frameHandle !== null) {
